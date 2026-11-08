@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kelola Menu | Dapur Tetangga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="mitra-menu" class="bg-surface text-on-surface antialiased">
+<div id="site-header"></div>
+<main class="max-w-7xl mx-auto px-4 lg:px-12 pt-36 pb-6">
+<div class="flex items-center justify-between gap-3 mb-4">
+  <div><h1 class="text-2xl font-bold">Kelola menu</h1><p class="text-sm text-on-surface-variant">Ubah nama, deskripsi, harga, dan ketersediaan menu dapur Anda.</p></div>
+  <button id="add" class="bg-primary-container hover:bg-primary text-on-primary font-semibold px-4 py-2.5 rounded-lg shadow-sm flex items-center gap-1.5"><span class="material-symbols-outlined">add</span>Tambah menu</button>
+</div>
+<div id="list" class="flex flex-col gap-3"></div>
+
+<div id="modal" class="hidden fixed inset-0 z-[60] bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <form id="form" class="bg-surface-lowest rounded-xl max-w-md w-full p-5 shadow-xl flex flex-col gap-3" novalidate>
+    <div class="flex items-center justify-between"><h2 id="m-title" class="font-bold"></h2><button type="button" data-close aria-label="Tutup"><span class="material-symbols-outlined">close</span></button></div>
+    <label class="text-sm font-semibold">Nama menu<input name="name" maxlength="60" class="mt-1 w-full bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></label>
+    <label class="text-sm font-semibold">Deskripsi<textarea name="desc" maxlength="200" class="mt-1 w-full h-20 bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></textarea></label>
+    <label class="text-sm font-semibold">Harga (Rp)<input name="price" type="number" min="1000" max="500000" step="500" class="mt-1 w-full bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></label>
+    <label class="flex items-center gap-2 text-sm font-semibold"><input name="on" type="checkbox" class="w-4 h-4 accent-secondary">Tersedia untuk dipesan</label>
+    <p id="err" role="alert" class="text-sm text-error min-h-5"></p>
+    <div class="flex justify-end gap-2"><button type="button" data-close class="px-4 py-2 rounded-lg text-sm font-semibold text-on-surface-variant">Batal</button><button class="px-4 py-2 rounded-lg bg-primary-container text-on-primary text-sm font-semibold">Simpan</button></div>
+  </form>
+</div>
+</main>
+<div id="site-footer"></div>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/store.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

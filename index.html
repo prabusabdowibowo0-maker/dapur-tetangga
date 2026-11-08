@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Katalog Dapur | Dapur Tetangga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="katalog" class="bg-surface text-on-surface antialiased">
+<div id="site-header"></div>
+<main class="max-w-7xl mx-auto px-4 lg:px-12 pt-36 pb-6">
+<section class="bg-surface-low rounded-xl p-5 md:p-8">
+  <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight max-w-3xl">Masakan rumahan tetangga, hangat dan dekat.</h1>
+  <p class="text-on-surface-variant max-w-2xl mt-2">Pesan langsung dari dapur ibu-ibu di sekitar RT/RW Anda. Segar, terjangkau, dan diantar tetangga.</p>
+</section>
+<section class="mt-6 flex flex-col md:flex-row gap-3 md:items-center justify-between">
+  <label class="relative w-full md:w-96 block"><span class="sr-only">Cari dapur</span>
+    <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-primary-container">search</span>
+    <input id="q" type="search" placeholder="Cari dapur, pemilik, atau wilayah..." class="w-full bg-surface-lowest pl-11 pr-4 py-2.5 rounded-full text-sm shadow-sm outline-none focus:ring-2 focus:ring-primary-container"></label>
+  <label class="flex items-center gap-2 text-xs text-on-surface-variant">Urutkan
+    <select id="sort" class="bg-surface-lowest rounded-lg px-2 py-1.5 font-bold text-on-surface outline-none"><option value="name">Nama A-Z</option><option value="price">Harga termurah</option></select></label>
+</section>
+<h2 class="mt-6 mb-3 font-bold">Dapur mitra (<span id="count">0</span>)</h2>
+<div id="grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><p class="col-span-full text-sm text-on-surface-variant">Memuat...</p></div>
+</main>
+<div id="site-footer"></div>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/store.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

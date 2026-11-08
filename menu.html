@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu Dapur | Dapur Tetangga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="menu" class="bg-surface text-on-surface antialiased">
+<div id="site-header"></div>
+<main class="max-w-7xl mx-auto px-4 lg:px-12 pt-36 pb-6">
+<div id="content" class="grid lg:grid-cols-2 gap-6 items-start">
+  <section class="bg-surface-lowest rounded-xl p-6 shadow-sm">
+    <span id="k-status" class="text-xs font-bold bg-secondary-fixed text-on-secondary-fixed-variant px-2.5 py-1 rounded-full"></span>
+    <h1 id="k-name" class="text-3xl font-extrabold mt-3"></h1>
+    <p id="k-meta" class="text-sm text-on-surface-variant mt-1"></p>
+    <p id="k-desc" class="mt-4 text-on-surface-variant"></p>
+  </section>
+  <section class="bg-surface-lowest rounded-xl p-5 shadow-md">
+    <h2 class="font-bold mb-3">Pilih menu</h2>
+    <div id="items" class="flex flex-col gap-2"></div>
+    <div class="mt-5 pt-4 border-t border-surface-high flex flex-col gap-3">
+      <div class="flex items-center justify-between"><span class="text-sm text-on-surface-variant">Total (belum ongkir)</span><b id="total" class="text-2xl text-primary-container">Rp0</b></div>
+      <div class="flex flex-col sm:flex-row gap-2">
+        <button id="add" class="flex-1 bg-primary-container hover:bg-primary text-on-primary py-3.5 rounded-lg font-semibold shadow-md flex items-center justify-center gap-2"><span class="material-symbols-outlined">shopping_bag</span>Tambahkan ke keranjang</button>
+        <button id="now" class="bg-surface-high hover:bg-surface-highest py-3.5 px-4 rounded-lg font-semibold flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-secondary">bolt</span>Pesan sekarang</button>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+<div id="site-footer"></div>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/store.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Masuk | Dapur Tetangga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="login" class="bg-surface text-on-surface antialiased">
+<div id="site-header"></div>
+<main class="max-w-7xl mx-auto px-4 lg:px-12 pt-36 pb-6">
+<div class="max-w-md mx-auto bg-surface-lowest rounded-xl shadow-md p-6">
+  <div class="flex p-1 bg-surface-high rounded-xl mb-5"><button id="t-konsumen" type="button">Konsumen</button><button id="t-mitra" type="button">Mitra</button></div>
+  <h1 id="title" class="text-xl font-bold mb-4"></h1>
+  <form id="auth-form" class="flex flex-col gap-3" novalidate>
+    <label id="f-name" class="hidden text-sm font-semibold">Nama lengkap<input name="name" autocomplete="name" maxlength="60" class="mt-1 w-full bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></label>
+    <label id="f-kitchen" class="hidden text-sm font-semibold">Nama dapur<input name="kitchen" maxlength="60" class="mt-1 w-full bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></label>
+    <label class="text-sm font-semibold">Email<input name="email" type="email" autocomplete="email" required class="mt-1 w-full bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></label>
+    <label class="text-sm font-semibold">Kata sandi<input name="pass" type="password" autocomplete="current-password" minlength="8" required class="mt-1 w-full bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></label>
+    <p id="err" role="alert" class="text-sm text-error min-h-5"></p>
+    <button id="submit" class="bg-primary-container hover:bg-primary text-on-primary font-semibold py-3 rounded-lg shadow-sm"></button>
+    <button id="switch" type="button" class="text-sm font-semibold text-primary"></button>
+  </form>
+  <p id="hint" class="text-xs text-on-surface-variant bg-surface-low p-3 rounded-lg mt-4"></p>
+</div>
+</main>
+<div id="site-footer"></div>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/store.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

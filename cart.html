@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keranjang | Dapur Tetangga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="cart" class="bg-surface text-on-surface antialiased">
+<div id="site-header"></div>
+<main class="max-w-7xl mx-auto px-4 lg:px-12 pt-36 pb-6">
+<h1 class="text-2xl font-bold mb-4">Keranjang &amp; pembayaran</h1>
+<div id="empty" class="hidden bg-surface-lowest rounded-xl p-8 text-center shadow-sm"><p class="mb-3 text-on-surface-variant">Keranjang masih kosong.</p><a href="index.html" class="inline-block bg-primary-container text-on-primary font-semibold px-5 py-2.5 rounded-lg">Pilih dapur</a></div>
+
+<div id="checkout">
+<div id="cart-grid" class="grid lg:grid-cols-12 gap-6 items-start">
+  <section class="lg:col-span-7 flex flex-col gap-4">
+    <div class="bg-surface-lowest rounded-xl p-5 shadow-sm"><h2 class="font-bold mb-2">Pesanan</h2><div id="lines" class="divide-y divide-surface-high"></div></div>
+    <div class="bg-surface-lowest rounded-xl p-5 shadow-sm flex flex-col gap-3">
+      <h2 class="font-bold">Pengambilan</h2>
+      <div class="grid sm:grid-cols-2 gap-2">
+        <label class="flex items-center gap-3 p-3 rounded-lg bg-surface-low cursor-pointer text-sm"><input type="radio" name="ful" value="antar" checked class="accent-primary"><b>Diantar kurir RT</b></label>
+        <label class="flex items-center gap-3 p-3 rounded-lg bg-surface-low cursor-pointer text-sm"><input type="radio" name="ful" value="ambil" class="accent-primary"><b>Ambil sendiri</b></label>
+      </div>
+      <label id="addr" class="text-sm font-semibold">Blok / alamat antar<input id="blok" maxlength="80" placeholder="Contoh: Blok A3 No. 12, RT 02" class="mt-1 w-full bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></label>
+      <label class="text-sm font-semibold">Catatan (opsional)<textarea id="note" maxlength="200" class="mt-1 w-full h-20 bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></textarea></label>
+    </div>
+    <div class="bg-surface-lowest rounded-xl p-5 shadow-sm flex flex-col gap-2">
+      <h2 class="font-bold">Metode pembayaran</h2>
+      <label class="flex items-center gap-3 p-3 rounded-lg bg-surface-low cursor-pointer text-sm"><input type="radio" name="pay" value="qris" checked class="accent-primary"><b>QRIS</b></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg bg-surface-low cursor-pointer text-sm"><input type="radio" name="pay" value="transfer" class="accent-primary"><b>Transfer bank</b></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg bg-surface-low cursor-pointer text-sm"><input type="radio" name="pay" value="cod" class="accent-primary"><b>Bayar di tempat (tunai)</b></label>
+    </div>
+  </section>
+  <aside class="lg:col-span-5 bg-surface-lowest rounded-xl p-5 shadow-md flex flex-col gap-3">
+    <h2 class="font-bold">Ringkasan</h2>
+    <div id="sum" class="text-sm flex flex-col gap-1"></div>
+    <button id="pay-btn" class="bg-primary-container hover:bg-primary text-on-primary font-semibold py-3.5 rounded-lg shadow-md flex items-center justify-center gap-2"><span class="material-symbols-outlined">lock</span>Bayar &amp; pesan</button>
+    <p class="text-xs text-on-surface-variant">Pembayaran QRIS/transfer dikonfirmasi manual oleh mitra setelah Anda membayar.</p>
+  </aside>
+</div>
+</div>
+
+<section id="pay" class="hidden max-w-lg mx-auto bg-surface-lowest rounded-xl shadow-md p-6 flex flex-col gap-4" role="status">
+  <h2 class="font-bold text-lg">Pesanan dibuat</h2>
+  <div class="text-center"><span class="text-xs text-on-surface-variant block">Total</span><b id="pay-total" class="text-3xl text-primary-container"></b></div>
+  <div id="pay-body" class="bg-surface-low rounded-xl p-4"></div>
+  <a href="tracker.html" class="text-center bg-primary-container text-on-primary font-semibold px-5 py-2.5 rounded-lg">Lihat pesanan saya</a>
+</section>
+</main>
+<div id="site-footer"></div>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/store.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>
