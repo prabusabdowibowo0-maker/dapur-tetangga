@@ -44,3 +44,4 @@ langganan mingguan berulang, upload foto dapur/menu, dan peran kurir. Tailwind C
 git remote add origin https://github.com/USERNAME/dapur-tetangga.git
 git push -u origin main
 ```
+pw supabase (DapurTetangga.404)
