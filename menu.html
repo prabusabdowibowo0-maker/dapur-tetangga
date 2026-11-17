@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu Dapur | Dapur Tetangga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="menu" class="bg-surface text-on-surface antialiased">
+<div id="site-header" class="sticky top-0 z-50"></div>
+<main class="max-w-7xl mx-auto px-4 lg:px-12 pt-6 pb-10">
+
+<div id="content">
+<a href="index.html" class="inline-flex items-center gap-1 text-primary-container font-bold text-sm mb-4"><span class="material-symbols-outlined">chevron_left</span>Kembali ke Katalog Dapur</a>
+<section class="relative rounded-t-3xl overflow-hidden bg-ink h-64 md:h-80 custom-shadow">
+  <div id="k-cover" class="absolute inset-0"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10"></div>
+  <div class="absolute bottom-0 inset-x-0 p-6 md:p-8 text-white">
+    <div class="flex flex-wrap gap-2"><span id="k-cat" class="chip bg-primary-container"></span><span id="k-rad" class="chip bg-white/20 backdrop-blur"></span><span id="k-status" class="chip bg-secondary-fixed text-on-secondary-fixed-variant"></span></div>
+    <h1 id="k-name" class="text-4xl md:text-5xl font-extrabold mt-2"></h1><p id="k-meta" class="text-sm text-stone-200 mt-1"></p>
+  </div>
+</section>
+<section class="bg-white rounded-b-3xl border border-t-0 border-line p-6 md:p-8 grid md:grid-cols-2 gap-6">
+  <div><h2 class="text-xs font-extrabold tracking-wider uppercase text-on-surface-variant mb-2">Cerita dapur rumah</h2><div id="k-desc" class="desc"></div></div>
+  <div><h2 class="text-xs font-extrabold tracking-wider uppercase text-on-surface-variant mb-2">Jaminan kualitas</h2><div id="k-badges" class="flex flex-wrap gap-2"></div></div>
+</section>
+<div class="mt-6 flex flex-col md:flex-row md:items-center justify-between gap-3">
+  <div class="inline-flex bg-white border border-line rounded-xl p-1 self-start" role="tablist">
+    <button data-tab="harian" role="tab"><span class="material-symbols-outlined !text-base">shopping_bag</span>Pesan Harian (Sekali Makan)</button>
+    <button data-tab="langganan" role="tab"><span class="material-symbols-outlined !text-base">calendar_month</span>Langganan Mingguan (5 Hari)</button>
+  </div>
+  <p id="tab-hint" class="text-xs text-on-surface-variant"></p>
+</div>
+<div class="grid lg:grid-cols-3 gap-6 items-start mt-5">
+  <section class="lg:col-span-2 card p-5"><h2 id="items-title" class="text-lg font-extrabold mb-3"></h2><div id="items" class="flex flex-col gap-3"></div></section>
+  <section class="card p-5 lg:sticky lg:top-40">
+    <h2 class="font-extrabold mb-3">Ringkasan pilihan</h2>
+    <div class="flex items-center justify-between"><span class="text-sm text-on-surface-variant">Total (belum ongkir)</span><b id="total" class="text-2xl text-primary-container">Rp0</b></div>
+    <div class="mt-4 flex flex-col gap-2">
+      <button id="add" class="btn btn-primary w-full"><span class="material-symbols-outlined">shopping_bag</span>Tambahkan ke keranjang</button>
+      <button id="now" class="btn btn-soft w-full"><span class="material-symbols-outlined text-secondary">bolt</span>Pesan sekarang</button>
+    </div>
+  </section>
+</div>
+</div>
+</main>
+<div id="site-footer"></div>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/store.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

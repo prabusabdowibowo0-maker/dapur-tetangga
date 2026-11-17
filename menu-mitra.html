@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kelola Menu | Dapur Tetangga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="mitra-menu" class="bg-surface text-on-surface antialiased">
+<div id="site-header" class="sticky top-0 z-50"></div>
+<main class="max-w-7xl mx-auto px-4 lg:px-12 pt-6 pb-10">
+<div class="flex items-center justify-between gap-3 mb-6">
+  <div><h1 class="text-2xl font-extrabold">Kelola menu</h1><p class="text-sm text-on-surface-variant">Foto, nama, deskripsi, harga, dan ketersediaan menu dapur Anda.</p></div>
+  <button id="add" class="btn btn-primary shrink-0"><span class="material-symbols-outlined">add</span><span>Tambah menu</span></button>
+</div>
+<div id="list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  <div class="card h-72 skeleton"></div><div class="card h-72 skeleton"></div><div class="card h-72 skeleton hidden lg:block"></div>
+</div>
+
+<div id="modal" class="hidden fixed inset-0 z-[60] bg-inverse-surface/50 backdrop-blur-sm flex items-end sm:items-center justify-center sm:p-4" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <form id="form" class="modal-in bg-surface-lowest rounded-t-2xl sm:rounded-2xl max-w-lg w-full max-h-[92vh] overflow-y-auto p-5 shadow-xl flex flex-col gap-4" novalidate>
+    <div class="flex items-center justify-between"><h2 id="m-title" class="text-lg font-extrabold"></h2><button type="button" data-close aria-label="Tutup" class="w-10 h-10 rounded-full hover:bg-surface-high"><span class="material-symbols-outlined">close</span></button></div>
+
+    <div>
+      <span class="text-sm font-semibold">Foto menu <span class="font-normal text-on-surface-variant">(opsional)</span></span>
+      <div id="drop" tabindex="0" role="button" aria-label="Pilih foto menu" class="dropzone mt-1">
+        <img id="preview" alt="Pratinjau foto" class="hidden w-full h-full object-cover">
+        <div id="drop-hint" class="text-center text-on-surface-variant p-4"><span class="material-symbols-outlined !text-4xl text-primary-container">add_photo_alternate</span><p class="text-sm font-semibold mt-1">Ketuk untuk pilih foto, atau seret ke sini</p><p class="text-xs">JPG / PNG. Otomatis dikecilkan agar ringan.</p></div>
+        <span id="drop-change" class="hidden absolute bottom-2 right-2 bg-inverse-surface/80 text-inverse-on-surface text-xs font-bold px-3 py-1.5 rounded-full">Ganti foto</span>
+      </div>
+      <input id="file" type="file" accept="image/*" class="hidden">
+      <button type="button" id="img-del" class="hidden mt-2 text-xs font-bold text-error">Hapus foto</button>
+    </div>
+
+    <label class="text-sm font-semibold">Jenis<select name="kind" class="mt-1 w-full bg-surface-low rounded-lg px-3 py-3 font-normal outline-none focus:ring-2 focus:ring-primary-container"><option value="harian">Menu harian (sekali makan)</option><option value="langganan">Paket langganan mingguan (5 hari, harga = total paket)</option></select></label>
+
+    <label class="text-sm font-semibold">Nama menu<input name="name" maxlength="60" placeholder="Contoh: Paket Nasi Ayam" class="mt-1 w-full bg-surface-low rounded-lg px-3 py-3 font-normal outline-none focus:ring-2 focus:ring-primary-container"></label>
+
+    <div>
+      <div class="flex items-center justify-between"><label for="desc" class="text-sm font-semibold">Deskripsi</label><button type="button" id="bullet" class="btn btn-soft !min-h-8 !px-3 !text-xs"><span class="material-symbols-outlined !text-base">format_list_bulleted</span>Jadikan poin</button></div>
+      <textarea id="desc" name="desc" maxlength="300" placeholder="Ketik, lalu tekan Enter untuk poin berikutnya. Contoh:&#10;Isi paket:&#10;- Nasi&#10;- Tahu &amp; tempe" class="mt-1 w-full h-28 bg-surface-low rounded-lg px-3 py-3 font-normal outline-none focus:ring-2 focus:ring-primary-container"></textarea>
+      <p class="text-xs text-on-surface-variant flex justify-between"><span>Awali baris dengan <b>-</b> untuk membuat poin.</span><span id="desc-count">0/300</span></p>
+      <div id="desc-prev-wrap" class="hidden mt-2 bg-surface-low rounded-lg p-3"><p class="text-xs font-bold text-on-surface-variant mb-1">Tampilan ke pembeli</p><div id="desc-prev" class="text-sm desc"></div></div>
+    </div>
+
+    <label class="text-sm font-semibold">Harga
+      <span class="mt-1 flex items-center bg-surface-low rounded-lg focus-within:ring-2 focus-within:ring-primary-container"><span class="pl-3 text-on-surface-variant font-bold">Rp</span><input name="price" type="number" inputmode="numeric" min="1000" max="500000" step="500" placeholder="10000" class="w-full bg-transparent px-2 py-3 font-normal outline-none"></span>
+    </label>
+
+    <div class="flex items-center justify-between bg-surface-low rounded-lg px-3 py-3">
+      <div><b class="text-sm">Tersedia untuk dipesan</b><p id="on-hint" class="text-xs text-on-surface-variant"></p></div>
+      <button type="button" id="on" role="switch" class="switch" aria-label="Tersedia untuk dipesan"></button>
+    </div>
+
+    <p id="err" role="alert" class="text-sm text-error min-h-5"></p>
+    <div class="flex justify-end gap-2"><button type="button" data-close class="btn btn-soft">Batal</button><button id="save" class="btn btn-primary">Simpan</button></div>
+  </form>
+</div>
+</main>
+<div id="site-footer"></div>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/store.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antaran Saya | Dapur Tetangga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="driver" class="bg-surface text-on-surface antialiased">
+<div id="site-header" class="sticky top-0 z-50"></div>
+<main class="max-w-7xl mx-auto px-4 lg:px-12 pt-6 pb-10">
+
+<div class="mb-5"><h1 class="text-2xl md:text-3xl font-extrabold">Antaran Saya</h1><p class="text-sm text-on-surface-variant">Ambil pesanan yang siap dijemput, antar ke tetangga, lalu tandai selesai. Diperbarui otomatis tiap 10 detik.</p></div>
+<section id="kpis" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"></section>
+<div class="grid lg:grid-cols-2 gap-6 items-start">
+  <section class="card p-5"><h2 class="text-lg font-extrabold mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-blue-600">inventory_2</span>Tugas tersedia</h2><div id="avail" class="flex flex-col gap-3"><div class="h-24 rounded-xl skeleton"></div></div></section>
+  <section class="card p-5"><h2 class="text-lg font-extrabold mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-emerald-600">local_shipping</span>Sedang saya antar</h2><div id="mine" class="flex flex-col gap-3"></div></section>
+</div>
+</main>
+<div id="site-footer"></div>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/store.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

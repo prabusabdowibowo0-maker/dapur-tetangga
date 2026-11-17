@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Mitra | Dapur Tetangga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="dashboard" class="bg-surface text-on-surface antialiased">
+<div id="site-header" class="sticky top-0 z-50"></div>
+<main class="max-w-7xl mx-auto px-4 lg:px-12 pt-6 pb-10">
+<div id="banner" class="hidden bg-tertiary-fixed text-on-tertiary-fixed rounded-xl p-4 mb-4 text-sm font-semibold" role="status">Dapur Anda belum diverifikasi, jadi belum tampil di katalog. Hubungi pengurus RT/admin untuk verifikasi.</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+  <h1 id="k-name" class="text-2xl font-bold"></h1><button id="toggle" class="self-start"></button>
+</div>
+<section id="kpis" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"></section>
+<div class="grid lg:grid-cols-12 gap-6 items-start">
+  <section class="lg:col-span-8 bg-surface-lowest rounded-xl shadow-sm p-5">
+    <h2 class="text-lg font-bold">Pesanan masuk</h2><p class="text-xs text-on-surface-variant mb-4">Diperbarui otomatis setiap 15 detik.</p>
+    <div id="orders" class="flex flex-col gap-3"><p class="text-sm text-on-surface-variant">Memuat...</p></div>
+  </section>
+  <form id="settings" class="lg:col-span-4 bg-surface-lowest rounded-xl shadow-sm p-5 flex flex-col gap-3">
+    <h2 class="font-bold">Pengaturan dapur</h2>
+    <label class="text-sm font-semibold">Kategori masakan<select name="category" class="mt-1 w-full bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"><option value="">Pilih kategori</option><option>Sunda</option><option>Padang</option><option>Jawa Timur</option><option>Sehat</option><option>Sarapan/Bekal</option><option>Lauk &amp; Sambal</option></select></label>
+    <label class="text-sm font-semibold">Jarak dapur dari pusat kompleks (meter)<span class="block text-xs font-normal text-on-surface-variant">Maksimal 800 m (radius pengantaran).</span><input name="distance" type="number" min="0" max="800" step="10" class="mt-1 w-full bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></label>
+    <label class="text-sm font-semibold">Cerita dapur<textarea name="story" maxlength="300" placeholder="Resep warisan keluarga, dimasak segar tiap pagi..." class="mt-1 w-full h-24 bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></textarea></label>
+    <label class="text-sm font-semibold">Jaminan kualitas<span class="block text-xs font-normal text-on-surface-variant">Pisahkan dengan koma, maks. 4. Contoh: Bahan Pasar Subuh, Resep Warisan</span><input name="badges" class="mt-1 w-full bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></label>
+    <label class="text-sm font-semibold">Deskripsi dapur<textarea name="desc" maxlength="300" class="mt-1 w-full h-24 bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></textarea></label>
+    <label class="text-sm font-semibold">Info pembayaran<span class="block text-xs font-normal text-on-surface-variant">Nomor rekening / keterangan QRIS yang tampil ke pembeli.</span><textarea name="pinfo" maxlength="300" class="mt-1 w-full h-24 bg-surface-low rounded-lg px-3 py-2.5 font-normal outline-none focus:ring-2 focus:ring-primary-container"></textarea></label>
+    <button class="btn btn-primary">Simpan</button>
+  </form>
+</div>
+</main>
+<div id="site-footer"></div>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/store.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

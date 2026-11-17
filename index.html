@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Katalog Dapur | Dapur Tetangga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="katalog" class="bg-surface text-on-surface antialiased">
+<div id="site-header" class="sticky top-0 z-50"></div>
+<main class="max-w-7xl mx-auto px-4 lg:px-12 pt-6 pb-10">
+
+<section class="relative overflow-hidden rounded-3xl bg-ink text-white p-6 md:p-10 custom-shadow">
+  <div class="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-primary-container/30 blur-3xl"></div>
+  <p class="chip bg-white/10 text-stone-200 mb-3"><span class="material-symbols-outlined !text-base">location_on</span>Radius pengantaran maks. 800 meter</p>
+  <h1 class="text-3xl md:text-5xl font-extrabold max-w-3xl leading-tight">Cita Rasa Rumahan dalam Radius 1 Kompleks RT/RW.</h1>
+  <p class="text-stone-300 max-w-2xl mt-3">Makanan rumahan yang hangat, segar, dan terjangkau langsung dari dapur ibu-ibu tetangga Anda. Pesan harian atau berlangganan seminggu penuh.</p>
+  <div class="flex flex-wrap gap-2 mt-5 text-xs font-semibold">
+    <span class="chip bg-white/10"><span class="material-symbols-outlined !text-base">two_wheeler</span>Diantar warga sekitar</span>
+    <span class="chip bg-white/10"><span class="material-symbols-outlined !text-base">calendar_month</span>Langganan Senin-Jumat</span>
+    <span class="chip bg-white/10"><span class="material-symbols-outlined !text-base">volunteer_activism</span>Memberdayakan ibu rumah tangga</span>
+  </div>
+</section>
+<section class="mt-6 card p-3 md:p-4 flex flex-col lg:flex-row gap-3 lg:items-center justify-between">
+  <div id="cats" class="flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Kategori masakan"></div>
+  <label class="relative lg:w-80 block shrink-0"><span class="sr-only">Cari dapur</span>
+    <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+    <input id="q" type="search" placeholder="Cari dapur, menu, atau lauk..." class="w-full bg-surface-low pl-11 pr-4 py-2.5 rounded-xl text-sm border border-line outline-none focus:ring-2 focus:ring-primary-container"></label>
+</section>
+<div class="mt-8 mb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+  <h2 class="text-xl md:text-2xl font-extrabold">Daftar Dapur Mitra di Kompleks Ini (<span id="count">0</span> Dapur)</h2>
+  <label class="flex items-center gap-2 text-xs text-on-surface-variant">Urutkan
+    <select id="sort" class="bg-white border border-line rounded-lg px-2 py-1.5 font-bold text-on-surface outline-none"><option value="near">Terdekat</option><option value="name">Nama A-Z</option><option value="price">Harga termurah</option></select></label>
+</div>
+<div id="grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><div class="card h-96 skeleton"></div><div class="card h-96 skeleton hidden md:block"></div><div class="card h-96 skeleton hidden lg:block"></div></div>
+</main>
+<div id="site-footer"></div>
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/store.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

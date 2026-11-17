@@ -1,0 +1,44 @@
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overscroll-behavior: none; }
+::-webkit-scrollbar { display: none; }
+.material-symbols-outlined { font-size: 20px; line-height: 1; vertical-align: middle; user-select: none; }
+.material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+#tickerText { transition: opacity .3s; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* ---- Komponen bersama (lebih jelas, area sentuh besar, ada umpan balik) ---- */
+#site-header { position: sticky; top: 0; z-index: 50; }
+button { cursor: pointer; transition: transform .12s, background-color .15s, box-shadow .15s, opacity .15s; }
+button:active:not(:disabled) { transform: scale(.97); }
+button:disabled { opacity: .6; cursor: not-allowed; }
+:focus-visible { outline: 3px solid rgba(200, 75, 40, .45); outline-offset: 2px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-height: 44px; padding: 0 1rem; border-radius: .75rem; font-weight: 700; font-size: .875rem; }
+.btn-primary { background: #c84b28; color: #fff; } .btn-primary:hover:not(:disabled) { background: #a63311; }
+.btn-soft { background: #eae8e5; color: #1b1c1a; } .btn-soft:hover:not(:disabled) { background: #e4e2df; }
+.btn-danger { background: #ffdad6; color: #93000a; } .btn-danger:hover:not(:disabled) { background: #ffc4bd; }
+.card { background: #fff; border-radius: 1rem; box-shadow: 0 1px 3px rgba(0, 0, 0, .08); transition: box-shadow .2s, transform .2s; }
+.card-hover:hover { box-shadow: 0 10px 28px rgba(0, 0, 0, .14); transform: translateY(-2px); }
+.switch { position: relative; width: 48px; height: 28px; border-radius: 999px; background: #c9c5c0; flex-shrink: 0; }
+.switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .3); transition: transform .18s; }
+.switch[aria-checked='true'] { background: #1c6c3f; } .switch[aria-checked='true']::after { transform: translateX(20px); }
+.skeleton { background: linear-gradient(90deg, #eae8e5 25%, #f5f3f0 50%, #eae8e5 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+.modal-in { animation: pop .2s ease-out; } @keyframes pop { from { opacity: 0; transform: translateY(16px) scale(.98); } }
+.dropzone { position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; border: 2px dashed #c9c5c0; border-radius: .75rem; background: #f5f3f0; overflow: hidden; cursor: pointer; transition: border-color .15s, background .15s; }
+.dropzone:hover, .dropzone.over { border-color: #c84b28; background: #fff3ef; }
+.dropzone:has(img:not(.hidden)) { border-style: solid; border-color: transparent; }
+/* Deskripsi: baris diawali "-" tampil sebagai list */
+.desc p { margin: 0; } .desc p + p { margin-top: .15rem; }
+.desc-list { list-style: disc; padding-left: 1.2rem; margin: .15rem 0; } .desc-list li { margin: .1rem 0; }
+
+/* ---- Tema referensi ---- */
+h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; letter-spacing: -.02em; }
+.btn-primary { background: #C85A32; } .btn-primary:hover:not(:disabled) { background: #B04B25; }
+.btn-ink { background: #1C1917; color: #fff; } .btn-ink:hover:not(:disabled) { background: #000; }
+.card { border: 1px solid #E8DFD1; box-shadow: 0 10px 30px -4px rgba(140, 55, 23, .06), 0 4px 10px -2px rgba(0, 0, 0, .03); }
+.custom-shadow { box-shadow: 0 10px 30px -4px rgba(140, 55, 23, .08), 0 4px 10px -2px rgba(0, 0, 0, .03); }
+.card-hover:hover { box-shadow: 0 16px 36px -6px rgba(140, 55, 23, .16); transform: translateY(-3px); }
+.chip { display: inline-flex; align-items: center; gap: .3rem; padding: .25rem .65rem; font-size: .75rem; font-weight: 600; border-radius: 999px; }
+.switch[aria-checked='true'] { background: #3E6B52; }
+.skeleton { background: linear-gradient(90deg, #EFE7DA 25%, #F6F1E8 50%, #EFE7DA 75%); background-size: 200% 100%; }
+.dropzone:hover, .dropzone.over { background: #FBF0EB; }
